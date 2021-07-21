@@ -94,7 +94,7 @@ nav#mobile ul {
   list-style-type: none;
   position: absolute;
   right: 10px;
-  top: 40px;
+  top: 105px;
 }
 /* line 69, ../sass/_menu.scss */
 nav#mobile ul a {
@@ -341,6 +341,13 @@ i {
   #contenido {
     padding: 10px 20px;
   }
+}
+
+/* line 93, ../sass/_contenido.scss */
+a.button:hover {
+  background-color: #d8b30d;
+  color: #690a37;
+  background-color: #fbeeb6;
 }
 
 /* line 20, ../sass/style.scss */
