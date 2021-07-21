@@ -1,0 +1,46 @@
+@mixin texto {//dado en pdf
+  color: $textColor;
+  background-color: $backgroundColor;
+}
+
+@mixin textoHover {//pdf
+  color: $textColorHover;
+  background-color: $backgroundColorHover;
+}
+
+@mixin box-sizing($boxSizing) {//pdf//si no ponemos nada por defecto es border-box
+  -webkit-box-sizing: $boxSizing;
+  -moz-box-sizing: $boxSizing;
+  box-sizing: $boxSizing;
+}
+
+@mixin transitions($property, $duration, $timing: linear) {//mixing con parámetros//pdf
+  -moz-transition: $property $duration $timing;
+  -webkit-transition: $property $duration $timing;
+  transition: $property $duration $timing;
+}
+
+@mixin animations($name, $duration, $timing) {//mixing con parámetros
+  -moz-animation: $name $duration $timing;
+  -webkit-animation: $name $duration $timing;
+  animation: $name $duration $timing;
+}
+
+@mixin marginPadding {
+  margin: $margin;
+  padding: $padding;
+}
+
+@mixin diseñoResponsive($size) {//pdf para hacer diseño responsive
+  @if $size == medium {//sentencia
+    @media (max-width: 1024px) {//número más grande, math-colour
+      @content;
+    }
+  }
+
+  @if $size == small {//pdf para hacer diseño responsive
+    @media (max-width: 800px) {//número más grande, math-colour
+      @content;
+    }
+  }
+}
