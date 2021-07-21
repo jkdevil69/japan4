@@ -1,0 +1,91 @@
+nav#desktop {//MENÚ GENERAL CON SUS SECCIONES
+  position: absolute;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  @include diseñoResponsive(medium) {
+    display: none;
+  }
+  ul {
+    list-style-type: none;
+    @include marginPadding;//incluimos el mixin del marginpadding para que quede todo bien colocado en ul
+   //viene del mixin
+    li.categoria {
+      float: left;
+      @include diseñoResponsive(medium) {//RESPONSIVE, PROBAR//mixin
+      display: none;
+    }
+    a {//DISTRIBUCIÓN SECCIONES EN SU CAJA
+        @include texto;//mixin
+        text-decoration: none;
+        width: 160px;
+        padding: 7px 15px;//PADDING VERTICAL PRIMERA CIFRA Y HORIZONTAL SEGUNDA CIFRA
+        display: block;
+        text-align: center;
+        cursor: pointer;
+    }
+    a:hover {//EFECTO ILUMINACIÓN AL PASAR RATÓN POR LA CATEGORÍA DE LA SECCIÓN
+      @include textoHover;//incluye mixin cambia color
+    }
+    ul.submenu {//HACE QUE LAS CATEGORÍAS DE LAS SECCIONES NO SE MUESTREN A MENOS QUE PASEMOS RATÓN
+      @include transitions(height, 0.5s);//incluimos mixing de transiciones
+      position: absolute;
+      height: 0px;
+      overflow: hidden;
+    }
+    a {
+        @include transitions(padding, 0.5s, ease-out);
+      }
+  }
+  li.categoria:hover {//MUESTRA CATEGORÍAS AL PASAR RATÓN POR SECCIÓN
+    a {//HEREDAMOS EL QUE SE MUESTREN LAS CATEGORÍAS
+        padding-top: 10px;//menu al pinchar secciones//TAMAÑO VERTICAL CAJA CATEGORÍA
+        padding-right: 20px;//TAMAÑO HORIZONTAL CAJA CATEGORÍA
+      }
+      ul {
+        height: 100px;
+      }
+    }
+  }
+  > ul {//CAJA MENU SECCIONES//> CONSIGO QUE EN LA HERENCIA DE PROPIEDADES SE AJUSTE A LA CAJA EL NÚMERO DE CATEGORÍAS
+    width: 100%;
+    height: 32Px;
+    @include texto;
+  }
+}
+nav#mobile {////////////////PARTE PARA PROBAR RESPONSIVE
+  display: none;
+  float: right;
+  @include diseñoResponsive(medium) {//MIXIN
+    display: block;
+  }
+  ul {
+    margin: 0px;
+    height: 0px;
+    overflow: hidden;
+    list-style-type: none;
+    position: absolute;
+    right: 10px;
+    top: 105px;
+    a {
+      color: #eee;
+      background-color: rgb(224, 195, 31);
+      text-decoration: none;
+      width: 160px;
+      padding: 7px 70px;
+      display: block;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.6em;
+      font-weight: normal;
+
+      &:hover {//& hereda
+        color: white;
+        background-color: #fcec0b;
+      }
+    }
+  }
+  &:hover ul {//el que hereda &//menú desplegable en versión móvil
+    height: auto;
+  }
+}
+
